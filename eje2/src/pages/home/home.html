@@ -7,5 +7,24 @@
 </ion-header>
 
 <ion-content padding>
- 
+  <ion-item>
+    <ion-label floating>Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="qrData"></ion-input>
+  </ion-item>
+
+  <button ion-button block color="dark" icon-left (click)="createcode()"><ion-icon name="barcode"></ion-icon>Crear</button>
+  <button ion-button block color="dark" icon-left (click)="scancode()"><ion-icon name="qr-scanner"></ion-icon>Scanear</button>
+<ion-card *ngIf="createdCode">
+<ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+<ion-card-content>
+  <p>Value: {{createdCode}}</p>
+</ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="scannedCode">
+  
+  <ion-card-content>
+    <p>Result: {{scannedCode}}</p>
+  </ion-card-content>
+  </ion-card>
 </ion-content>
