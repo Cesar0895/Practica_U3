@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
-import { Contact } from '@ionic-native/contacts';
+import { Contacts } from '@ionic-native/contacts';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -32,7 +32,7 @@ import { HomePage } from '../pages/home/home';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    Contact
+    Contacts
   ]
 })
 export class AppModule {}
