@@ -31,8 +31,8 @@ createdCode=null;
 
         let contact: Contact = this.contacts.create();
 
-contact.name = new ContactName(null, 'Smith', 'John');
-contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+contact.name = new ContactName(null,this.scannedCode,'');
+contact.phoneNumbers = [new ContactField('mobile', this.scannedCode)];
 contact.save().then(
   () => console.log('Contact saved!', contact),
   (error: any) => console.error('Error saving contact.', error)
