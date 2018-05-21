@@ -9,41 +9,14 @@
 
     <ion-content padding>
      
-      <ion-list no-lines>
-        <ion-item>
-          <form [formGroup]='formGroup'>
-            <ion-list no-lines>
-              <ion-item>
-                <ion-input placeholder="Usuario" formControlName="Nuser" type="text" [(ngModel)]="Nuser"></ion-input>
-              </ion-item>
-              <ion-item *ngIf="formGroup.controls['Nuser'].errors?.required &&
-              formGroup.controls['Nuser'].touched">
-                <p>*Campo de usuario requerido</p>
-              </ion-item>
-    
-    
-                <ion-item>
-                    <ion-input placeholder="Password" formControlName="Npass" type="text" [(ngModel)]="Npass"></ion-input>
-                  </ion-item>
-                  <ion-item *ngIf="formGroup.controls['Npass'].errors?.required &&
-                  formGroup.controls['Npass'].touched">
-                    <p>*Password Requerido </p>
-                  </ion-item>
-          
-            </ion-list>
-          </form>
-        </ion-item>
+     
     
         <ion-item>
           <button ion-button full (click)="gotoWelcome()">Ingresar</button>
         </ion-item>
       
       <ion-item>
-        <button ion-button item-end round full icon-start color="light"class="botones">
-            <ion-icon name='logo-facebook'></ion-icon>
-            Entrar via Facebook
-          </button>
-        </ion-item>
+       <button ion-button block (click)="Login()">Login whit Facebook</button>
 
         <ion-item>
         <button ion-button item-end round full icon-start color="secondary" class="botones">
@@ -59,5 +32,5 @@
           </button>
         </ion-item>
     
-      </ion-list>
+     
     </ion-content>

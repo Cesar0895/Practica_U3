@@ -6,13 +6,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { WelcomePage } from "../pages/welcome/welcome";
 
+
+import firebase  from 'firebase';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyBt1l5PWBiOlPVfmvot3l0UvrD-zLb4_NI",
+  authDomain: "proyectou3-c677a.firebaseapp.com",
+  databaseURL: "https://proyectou3-c677a.firebaseio.com",
+  projectId: "proyectou3-c677a",
+  storageBucket: "proyectou3-c677a.appspot.com",
+  messagingSenderId: "370448692066"
+});
+  
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    WelcomePage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -21,8 +31,7 @@ import { WelcomePage } from "../pages/welcome/welcome";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    WelcomePage
+    HomePage
   ],
   providers: [
     StatusBar,
