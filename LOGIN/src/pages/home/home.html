@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar #mycontent>
+    <button ion-button menuToggle>
+         <ion-icon name="menu" item-start></ion-icon>
+     </button>
+    <ion-title>
+      Practica Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card-header>
+    <h1 Style="text-align: center"><b>Inicio exitoso</b></h1>
+  </ion-card-header>
+  <ion-list>
+    <ion-item-sliding *ngFor="let provedor of dato.providerData">
+      <ion-item>
+        <div>
+          <ion-item>
+            <ion-avatar item-start *ngIf='(provedor.photoURL==null)?false:true'>
+              <img src="{{provedor.photoURL}}">
+            </ion-avatar>
+            <ion-avatar item-start *ngIf='(provedor.photoURL==null)?true:false'>
+              <ion-icon name='person'></ion-icon>
+            </ion-avatar>
+            <ion-icon name="{{LogoRedes(provedor.providerId)}}" item-end></ion-icon>
+            <h2>{{(provedor.providerId=="password")?"Email":provedor.providerId}}</h2>
+          </ion-item>
+          <ion-card-title>
+            Usuario:
+            <p>{{provedor.displayName}}</p>
+          </ion-card-title>
+          <ion-list>
+            <ion-item>
+              Correo:
+              <p>{{provedor.email}}</p>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" icon-only (click)="desvincular(provedor.providerId)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <button ion-button block (click)='auth.logout()' color='light'><ion-icon name="md-log-out"></ion-icon>Salir</button>
+</ion-content>
