@@ -7,36 +7,43 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { LoginPage } from '../pages/login/login';
+import { OffLine } from '../pages/offline/offline';
 
-import firebase  from 'firebase';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environments';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthProvider } from '../providers/auth/auth';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyBt1l5PWBiOlPVfmvot3l0UvrD-zLb4_NI",
-  authDomain: "proyectou3-c677a.firebaseapp.com",
-  databaseURL: "https://proyectou3-c677a.firebaseio.com",
-  projectId: "proyectou3-c677a",
-  storageBucket: "proyectou3-c677a.appspot.com",
-  messagingSenderId: "370448692066"
-});
-  
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    OffLine
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    OffLine
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}
