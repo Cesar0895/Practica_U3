@@ -1,0 +1,8 @@
+{
+  "name": "sociallogin",
+  "app_id": "6e2271f1",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
