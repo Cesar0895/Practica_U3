@@ -11,12 +11,14 @@ import firebase from 'firebase';
 })
 export class HomePage {
 
-  facebook ={
-    loggedin: false,
+  provider ={
+ 
     name:'',
     profilePicture:'',
-    email:''
+    email:'',
+    loggedin: false
   }
+
 
 
 
@@ -28,17 +30,31 @@ export class HomePage {
   loginWithFacebook(){
     this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then( res =>{
-      this.facebook.loggedin = true;
-      this.facebook.name = res.user.displayName;
-      this.facebook.email = res.user.email;
-      this.facebook.profilePicture = res.user.photoURL;
+      this.provider.loggedin = true;
+      this.provider.name = res.user.displayName;
+      this.provider.email = res.user.email;
+      this.provider.profilePicture = res.user.photoURL;
       console.log(res);
     })
 
   }
-  logoutFacebook(){
+  loginWithGoogle(){
+    this.fire.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .then(res =>{
+      console.log('From --Google--');
+      console.log(res);
+      this.provider.loggedin = true;
+      this.provider.name = res.user.displayName;
+      this.provider.email = res.user.email;
+      this.provider.profilePicture = res.user.photoURL;
+      console.log(res);
+    })
+  }
+ 
+
+  logout() {
     this.fire.auth.signOut();
-    this.facebook.loggedin = false;
+    this.provider.loggedin = false;
     
   }
 

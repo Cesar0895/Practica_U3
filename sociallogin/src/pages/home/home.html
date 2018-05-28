@@ -7,21 +7,24 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="loginWithFacebook()" *ngIf="!facebook.loggedin">Login With Facebook</button>
+  <button ion-button (click)="loginWithFacebook()" *ngIf="!provider.loggedin">Login 
+    With Facebook</button>
+  <button ion-button (click)="loginWithGoogle()" *ngIf="!provider.loggedin">Login 
+        With Google</button>
    
-  <ion-card *ngIf="facebook.loggedin">
-    <img src="{{ facebook.profilePicture }}"/>
+  <ion-card *ngIf="provider.loggedin">
+    <img src="{{ provider.profilePicture }}"/>
     <ion-card-content>
       <ion-card-title>
-        {{ facebook.name }}
+        {{ provider.name }}
       </ion-card-title>
       <p style=" text-align: center">
 
-        {{ facebook.email}}
+        {{ provider.email}}
       </p>
 
     </ion-card-content>
   </ion-card>
 
-  <button ion-button (click)="logoutOfFacebook()" *ngIf="!facebook.loggedin">Logout Of Facebook</button>
+  <button ion-button (click)="logout()" *ngIf="!provider.loggedin">Logout</button>
 </ion-content>
