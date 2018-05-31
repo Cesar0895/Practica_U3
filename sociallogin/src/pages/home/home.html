@@ -1,16 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Login
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  <button ion-button (click)="loginWithFacebook()" *ngIf="!provider.loggedin">Login 
-    With Facebook</button>
-  <button ion-button (click)="loginWithGoogle()" *ngIf="!provider.loggedin">Login 
-        With Google</button>
+    <ion-card full>
+        <ion-item>
+          <h1>Login Social Networks</h1>
+        </ion-item>
+        <img src="https://pbs.twimg.com/profile_images/963655937256034304/H1FWC3Jk.jpg">
+    
+      
+      </ion-card>
+    
+  <button ion-button (click)="loginWithFacebook()" *ngIf="!provider.loggedin" color="default" round>
+      <ion-icon name="logo-facebook"> </ion-icon> Facebook</button>
+  
+      <button ion-button (click)="loginWithTwitter()" *ngIf="!provider.loggedin" color="light" round>
+          <ion-icon name="logo-twitter"> </ion-icon>Entrar Via Twitter </button>
+  
+      <button ion-button (click)="loginWithGoogle()" *ngIf="!provider.loggedin" color="secondary" round>
+      <ion-icon name="logo-google"></ion-icon>Google </button>
+      
+ 
    
   <ion-card *ngIf="provider.loggedin">
     <img src="{{ provider.profilePicture }}"/>
