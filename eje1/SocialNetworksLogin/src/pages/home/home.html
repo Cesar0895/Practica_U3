@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar #mycontent>
+      <button ion-button menuToggle>
+          <ion-icon name="menu" item-start></ion-icon>
+      </button>
+    <ion-title>
+      Datos del usuario
+    </ion-title>
+  </ion-navbar>
+ </ion-header>
+ 
+ 
+ <ion-content padding>
+ 
+  <ion-list>
+    <ion-item-sliding *ngFor="let provedor of dato.providerData">
+      <ion-item>
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-start *ngIf='(provedor.photoURL==null)?false:true'>
+                  <img src="{{provedor.photoURL}}">
+                </ion-avatar>
+                <ion-avatar item-start *ngIf='(provedor.photoURL==null)?true:false'>
+                  </ion-avatar>
+                <ion-icon name="{{imgLogo(provedor.providerId)}}" item-end></ion-icon>
+                <h1>{{(provedor.providerId=="password")?"Email":provedor.providerId}}</h1>
+            </ion-item>
+            <ion-card-header>
+            </ion-card-header>
+            <ion-card-content>
+                <h2><b>
+                    <ion-icon name='person'></ion-icon>
+                Usuario: </b></h2><p>{{provedor.displayName}}</p>
+                <h2><b><ion-icon name='mail'></ion-icon> 
+                  Correo:</b></h2> <p>{{provedor.email}}</p>
+               
+                <ion-list>
+                  <ion-item>
+                    
+                  </ion-item>
+                </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-button color="secondary" icon-only (click)="desvincular(provedor.providerId)"><ion-icon name="trash"></ion-icon></button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <button side="center" ion-button (click)='auth.logout()' color='secondary'><ion-icon name="power" round full></ion-icon>Cerrar sesion</button>
+ </ion-content>
+ 

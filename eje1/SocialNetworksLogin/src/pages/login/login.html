@@ -1,0 +1,35 @@
+<ion-content>
+    <ion-card full>
+        <ion-item>
+            <h1 Style= "text-align: center"><b>Login Social Networks</b></h1>
+        </ion-item>
+        <img src="http://editions.lib.umn.edu/electionacademy/wp-content/uploads/sites/3/2013/01/social.media_.cube_.jpg" 
+      (click)="showMenu()"
+      >
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+          Login with:
+      </ion-card-header>
+      <ion-card-content>
+        
+        <button ion-button (click)="showMenu()" type="submit" color="dark" round full>
+            <ion-icon name="people"> </ion-icon>  Redes Sociales
+        </button>
+        <!--<button ion-button (click)="loginfacebook()" type="submit" color="primary" round full>
+            <ion-icon name="logo-facebook"> </ion-icon>  Facebook
+        </button>
+        <button ion-button (click)="logintwitter()" type="submit" color="primary" round full>
+            <ion-icon name="logo-twitter"> </ion-icon>  Twitter
+        </button>
+        <button ion-button (click)="logingoogle()" type="submit" color="danger" round full>
+            <ion-icon name="logo-google"></ion-icon> Google
+        </button>-->
+        <button ion-button (click)="signin()" type="submit" color="secondary" round full>
+            <ion-icon name="person-add"></ion-icon> Registrarse
+        </button>
+        
+      </ion-card-content>
+    </ion-card>
+ </ion-content>
+ 
